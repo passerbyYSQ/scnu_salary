@@ -105,6 +105,7 @@ public class BaseDao {
 			
 			// 将参数设置到sql语句的占位符中
 			setValue(pstmt, args);
+			System.out.println(pstmt);
 			
 			// 受影响的行数
 			count = pstmt.executeUpdate();

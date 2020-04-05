@@ -261,7 +261,7 @@ public class UserUpdatePanel extends JPanel {
 		
 		String proTitle = proTitleSelect.getSelectedItem().toString();
 		String salaryType = salaryTypeSelect.getSelectedItem().toString();
-		String loginAuth = salaryTypeSelect.getSelectedItem().toString();
+		String loginAuth = loginAuthSelect.getSelectedItem().toString();
 		
 		// 参数判断
 		if (TextHelper.isNullOrEmpty(userId)

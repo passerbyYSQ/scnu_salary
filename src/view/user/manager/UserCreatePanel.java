@@ -209,10 +209,11 @@ public class UserCreatePanel extends JPanel {
 				|| (userDao.getUserById(userId) != null)) {
 			return null;
 		}
-		
+		System.out.println(loginAuth);
 		// 无需设置密码。密码字段有默认值为：123456
 		return new User(userId, null, userName, sex, depId, null, loginAuth,
 				proTitle, post, salaryType, email, phone);
+
 	}
 }
 

@@ -241,6 +241,7 @@ public class SalaryPayPanel extends JPanel {
 					JOptionPane.showMessageDialog(SalaryPayPanel.this, "请正确填写参数", "提示", JOptionPane.ERROR_MESSAGE); 
 					return;
 				}
+				
 				int count = payDao.updatePayRecord(new BigDecimal(tempWage), new BigDecimal(extra), 
 						postscript, pay.getPayId());
 				if (count == 1) {
@@ -368,12 +369,14 @@ public class SalaryPayPanel extends JPanel {
 		if ("专任教师".equals(user.getSalaryType())) {
 			salary1 = new FullTimeTeacherSalary(user, new BigDecimal(tempWage), new BigDecimal(extra), year, month);
 			pay = new Pay(salary1.getResult() , null, user.getUserId(), null, salary1.getPostWage(), salary1.getPerformWage(), 
-					new BigDecimal(tempWage), new BigDecimal(extra), salary1.getLessonWage(), null, null, postscript);
+					new BigDecimal(tempWage), new BigDecimal(extra), salary1.getLessonWage(), new BigDecimal(0), new BigDecimal(0), 
+					postscript);
 		
 		} else if ("非专任教师".equals(user.getSalaryType())) {
 			salary2 = new ManageTeacherSalary(user, new BigDecimal(tempWage), new BigDecimal(extra), year, month);
 			pay = new Pay(salary2.getResult(), null, user.getUserId(), null, salary2.getPostWage(), salary2.getPerformWage(),
-					new BigDecimal(tempWage), new BigDecimal(extra), null, salary2.getManageWage(), salary2.getManageSubsidy(), postscript);
+					new BigDecimal(tempWage), new BigDecimal(extra), new BigDecimal(0), salary2.getManageWage(), 
+					salary2.getManageSubsidy(), postscript);
 		}
 		return pay;
 	}
